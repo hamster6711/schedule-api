@@ -12,3 +12,31 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Schedule {
+    id         String       @id @default(uuid())
+    accountId  Int
+    agentId    Int
+    startTime  DateTime     @default(now())
+    endTime    DateTime
+    tasks      Task[]
+
+    @@map("schedules")
+}
+
+model Task {
+    id          String      @id @default(uuid())
+    accountId   Int
+    scheduleId  String         
+    startTime   DateTime    @default(now())
+    duration    Int
+    type        TaskType
+    schedule    Schedule    @relation(fields: [scheduleId], references: [id])
+
+    @@map("tasks")
+}
+
+enum TaskType {
+    break
+    work
+}
