@@ -5,7 +5,7 @@
 
 2. Once DB is set up, replace the `DATANBASE_URL` in .env file folloing format: `postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=SCHEMA`
 
-3. Run the following command to create a mapping between prisma model and database:
+3. Run the following command to create/update the mapping between prisma model and database:
 
 ```
 npx prisma migrate dev --name init
@@ -29,19 +29,27 @@ npm start
 
 ### Test the project
 #### Health check
-To test whether the endpoints are responding, we could use PostMan to run a quick test. Below are all the available endpoints for this project:
+To test whether the endpoints are responding, we could use PostMan to run a quick test. Below are all the available endpoints and input format for this project:
 ```
 POST http://localhost/api/v1/schedules
+body: {"schedules" : [schedulePayload]}
+
 GET http://localhost/api/v1/schedules
+query: scheduleIds
+
 PUT http://localhost/api/v1/schedules
+param: scheduleId
+body: {"schedules" : schedulePayload}
+
 DELETE http://localhost/api/v1/schedules
+param: scheduleId
 
 POST http://localhost/api/v1/tasks
 GET http://localhost/api/v1/tasks
 PUT http://localhost/api/v1/tasks
 DELETE http://localhost/api/v1/tasks
 ```
-
+Created sample postman test file under `/postman` for dev testing purpose.
 
 #### Unit test
 TODO

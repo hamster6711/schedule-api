@@ -15,10 +15,10 @@ datasource db {
 
 model Schedule {
     id         String       @id @default(uuid())
-    accountId  Int
-    agentId    Int
-    startTime  DateTime     @default(now())
-    endTime    DateTime
+    accountId  Int?
+    agentId    Int?
+    startTime  DateTime?     @default(now())
+    endTime    DateTime?
     tasks      Task[]
 
     @@map("schedules")
@@ -26,10 +26,10 @@ model Schedule {
 
 model Task {
     id          String      @id @default(uuid())
-    accountId   Int
+    accountId   Int?
     scheduleId  String         
-    startTime   DateTime    @default(now())
-    duration    Int
+    startTime   DateTime?    @default(now())
+    duration    Int?
     type        TaskType
     schedule    Schedule    @relation(fields: [scheduleId], references: [id])
 

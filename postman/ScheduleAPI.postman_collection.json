@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "54097359-442d-458f-bb20-f2edd7f7395c",
+		"name": "ScheduleAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26670559"
+	},
+	"item": [
+		{
+			"name": "create-schedules",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"schedules\" :[{\n    \"accountId\": 3333,\n    \"agentId\": 67890,\n    \"startTime\": \"2023-04-09\",\n    \"endTime\": \"2023-04-12\"\n}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/v1/schedules"
+			},
+			"response": []
+		},
+		{
+			"name": "get-schedules",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/schedules?id=2ace1bcd-3cb1-4435-a17e-8893688406ae,6d7b7ff0-f266-440e-9d7b-d21995cc1f02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"schedules"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2ace1bcd-3cb1-4435-a17e-8893688406ae,6d7b7ff0-f266-440e-9d7b-d21995cc1f02"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-schedules",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3000/api/v1/schedules/6d7b7ff0-f266-440e-9d7b-d21995cc1f02"
+			},
+			"response": []
+		},
+		{
+			"name": "update-schedules",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"schedules\": {\n    \"accountId\": 12222\n}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/v1/schedules/44ea7b23-ccd2-44ec-8f62-319a248bf1fa"
+			},
+			"response": []
+		}
+	]
+}
