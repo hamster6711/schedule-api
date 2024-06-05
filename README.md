@@ -21,7 +21,12 @@ prisma generate
 ### Run the project
 Before running the project, plaese follow the [Set up of DB for running prisma](#set-up-of-db-for-running-prisma) to setup prisma first.
 
-**Build and Run the application**
+**Build and run the application with file change auto-detect**
+```
+npm run watch
+```
+
+**Build and run the application only**
 ```
 npm start
 ```
@@ -35,7 +40,7 @@ POST http://localhost/api/v1/schedules
 body: {"schedules" : [schedulePayload]}
 
 GET http://localhost/api/v1/schedules
-query: scheduleIds
+query: scheduleIds (optional)
 
 PUT http://localhost/api/v1/schedules
 param: scheduleId
@@ -45,9 +50,17 @@ DELETE http://localhost/api/v1/schedules
 param: scheduleId
 
 POST http://localhost/api/v1/tasks
+body: {"tasks" : [taskPayload]}
+
 GET http://localhost/api/v1/tasks
+query: taskIds (optional)
+
 PUT http://localhost/api/v1/tasks
+param: taskId
+body: {"tasks" : taskPayload}
+
 DELETE http://localhost/api/v1/tasks
+param: taskId
 ```
 Created sample postman test file under `/postman` for dev testing purpose.
 
