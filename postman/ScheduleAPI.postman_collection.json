@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"schedules\" :[{\n    \"accountId\": 3333,\n    \"agentId\": 67890,\n    \"startTime\": \"2023-04-09\",\n    \"endTime\": \"2023-04-12\"\n}]}",
+					"raw": "{\"schedules\" :[{\n    \"accountId\": 666,\n    \"agentId\": 67890,\n    \"startTime\": \"2023-04-09\",\n    \"endTime\": \"2023-04-12\"\n}]}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -30,7 +30,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/schedules?id=2ace1bcd-3cb1-4435-a17e-8893688406ae,6d7b7ff0-f266-440e-9d7b-d21995cc1f02",
+					"raw": "http://localhost:3000/api/v1/schedules?id=2ace1bcd-3cb1-4435-a17e-8893688406ae",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -44,7 +44,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "2ace1bcd-3cb1-4435-a17e-8893688406ae,6d7b7ff0-f266-440e-9d7b-d21995cc1f02"
+							"value": "2ace1bcd-3cb1-4435-a17e-8893688406ae"
 						},
 						{
 							"key": "",
@@ -57,7 +57,7 @@
 			"response": []
 		},
 		{
-			"name": "delete-schedules",
+			"name": "delete-schedule",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -66,7 +66,7 @@
 			"response": []
 		},
 		{
-			"name": "update-schedules",
+			"name": "update-schedule",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -80,6 +80,79 @@
 					}
 				},
 				"url": "http://localhost:3000/api/v1/schedules/44ea7b23-ccd2-44ec-8f62-319a248bf1fa"
+			},
+			"response": []
+		},
+		{
+			"name": "create-tasks",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"tasks\" :[{\n    \"accountId\": 333,\n    \"scheduleId\": \"08fc6f60-03b6-44a9-9277-5bd228ebb6dc\",\n    \"startTime\": \"2023-04-09\",\n    \"duration\": 2,\n    \"type\": \"work\"\n}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/v1/tasks"
+			},
+			"response": []
+		},
+		{
+			"name": "get-tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "cfbbddc8-7d47-43b1-8349-aa1dbabc45e2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3000/api/v1/tasks/cfbbddc8-7d47-43b1-8349-aa1dbabc45e2"
+			},
+			"response": []
+		},
+		{
+			"name": "update-task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"tasks\": {\n    \"accountId\": 6666,\n    \"startTime\": \"2011-02-09\"\n}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/v1/tasks/d807db0b"
 			},
 			"response": []
 		}

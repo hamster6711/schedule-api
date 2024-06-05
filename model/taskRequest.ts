@@ -1,9 +1,11 @@
+import { TaskType } from "@prisma/client";
+
 /** API model for task */
-interface TaskRequest {
+export interface TaskRequest {
     id: string,
     accountId: number,
-    scheduleId: number,
-    startTime: string,
-    duration: string,
-    type: string,
+    scheduleId: string,
+    startTime: Date,
+    duration: number,
+    type: TaskType,
 }

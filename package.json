@@ -5,6 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "start": "tsc --build && node dist/app.js",
+    "watch": "tsc -w & npx nodemon build",
     "test": "test"
   },
   "repository": {

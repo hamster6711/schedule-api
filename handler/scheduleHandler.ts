@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { BaseApiPrismaHandler } from "./baseApiHandler";
 import { SCHEDULE_ROOT_PATH } from "../constants";
 import { Prisma } from "@prisma/client";
+import { ScheduleRequest } from "../model/scheduleRequest";
 
 /**
  * API handler to perform CRUD operations on Schedules
@@ -110,24 +111,7 @@ export class ScheduleHandler extends BaseApiPrismaHandler{
             res.status(400).send({msg: "Bad request: no schedule id or schedule details provided to perform update."});
             return;
         }
-
-        // transform date type payload if exits
-        let payload: Prisma.ScheduleUpdateInput = {
-            ...scheduleRequest
-        }
-        if (scheduleRequest.startTime){
-            payload = {
-                ...scheduleRequest,
-                startTime: new Date(scheduleRequest.startTime),
-            }
-        }
-        if (scheduleRequest.endTime){
-            payload = {
-                ...scheduleRequest,
-                endTime: new Date(scheduleRequest.endTime),
-            }
-        }
-
+        
         // update or fail
         try{
             await this.prismaClient.schedule.update({

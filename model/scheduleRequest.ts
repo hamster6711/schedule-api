@@ -1,8 +1,8 @@
 /** API model for schedule */
-interface ScheduleRequest {
+export interface ScheduleRequest {
     id: string,
     accountId: number,
     agentId: number,
-    startTime: string,
-    endTime: string
+    startTime: Date,
+    endTime: Date
 }
