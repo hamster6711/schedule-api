@@ -31,6 +31,12 @@ npm run watch
 npm start
 ```
 
+**Run EsLint on the project**
+```
+npm run lint
+```
+
+
 
 ### Test the project
 #### Health check
