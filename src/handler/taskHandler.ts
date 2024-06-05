@@ -18,7 +18,7 @@ export class TaskHandler extends BaseApiPrismaHandler{
      * 
      */
     validateTaskRequest(req: Request, res: Response): boolean {
-        let tasksRequests: Omit<TaskRequest, "id">[] = req.body.tasks ?? [];
+        const tasksRequests: Omit<TaskRequest, "id">[] = req.body.tasks ?? [];
 
         if (tasksRequests.length == 0){
             res.status(400).send({msg: "Bad Request: no task is provided."});
@@ -63,7 +63,7 @@ export class TaskHandler extends BaseApiPrismaHandler{
         if (!inputValidationResult){return;}
 
         // input has been sanitized, safe to proceed
-        let tasksRequests: Omit<TaskRequest, "id">[] = req.body.tasks;
+        const tasksRequests: Omit<TaskRequest, "id">[] = req.body.tasks;
 
         // reformat start time to DateTime to obey prisma schema type
         const newTasksList: Prisma.TaskCreateManyInput[] = [];
@@ -90,7 +90,7 @@ export class TaskHandler extends BaseApiPrismaHandler{
      */
     override async get(req: Request, res: Response): Promise<void> {
         try{
-            let taskResuls = [];
+            let taskResuls: any[] = [];
             if (req.query.id){
                 const taskIdList: string[] = (req.query.id as string).split(",");
                 taskResuls = await this.prismaClient.task.findMany({
@@ -115,7 +115,7 @@ export class TaskHandler extends BaseApiPrismaHandler{
      */
     override async put(req: Request, res: Response): Promise<void> {
         const taskId: string = req.params.key;
-        let tasksRequests: Omit<TaskRequest, "id"> = req.body.tasks;
+        const tasksRequests: Omit<TaskRequest, "id"> = req.body.tasks;
 
         // input validation
         if (!taskId || !tasksRequests){

@@ -4,9 +4,10 @@
   "description": "a simple NodeJS based scheudule api",
   "main": "app.ts",
   "scripts": {
-    "watch": "npx nodemon -x ts-node -e ts app.ts .",
+    "watch": "npx nodemon -x ts-node -e ts src/app.ts .",
     "start": "tsc --build && node dist/app.js",
-    "test": "test"
+    "test": "test",
+    "lint": "eslint src **/*.ts"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,16 @@
     "@prisma/client": "^5.14.0",
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.1",
-    "eslint": "^9.4.0",
     "express": "^4.19.2",
     "jasmine": "^5.1.0",
     "prisma": "^5.14.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.4.0",
+    "eslint": "^9.4.0",
+    "globals": "^15.3.0",
+    "typescript-eslint": "^7.12.0"
   }
 }

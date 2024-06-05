@@ -41,7 +41,7 @@ export class ScheduleHandler extends BaseApiPrismaHandler{
      * 
      */
     override async post(req: Request, res: Response): Promise<void> {
-        let schedulesRequests : Omit<ScheduleRequest, "id">[] = req.body.schedules ?? [];
+        const schedulesRequests : Omit<ScheduleRequest, "id">[] = req.body.schedules ?? [];
 
         // input validation
         if (schedulesRequests.length == 0){
@@ -76,7 +76,7 @@ export class ScheduleHandler extends BaseApiPrismaHandler{
      */
     override async get(req: Request, res: Response): Promise<void> {
         try{
-            let scheduleResuls = [];
+            let scheduleResuls: any[] = [];
             if (req.query.id){
                 const scheduleIdList: string[] = (req.query.id as string).split(",");
                 scheduleResuls = await this.prismaClient.schedule.findMany({
