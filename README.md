@@ -71,4 +71,6 @@ param: taskId
 Created sample postman test file under `/postman` for dev testing purpose.
 
 #### Unit test
-TODO
+```
+npm run test
+```

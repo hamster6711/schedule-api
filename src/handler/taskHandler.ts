@@ -26,11 +26,9 @@ export class TaskHandler extends BaseApiPrismaHandler {
     }
     for (const task of tasksRequests) {
       if (!task.scheduleId || !task.type) {
-        res
-          .status(400)
-          .send({
-            msg: "Bad Request: scheduleId and taskType must be provided.",
-          });
+        res.status(400).send({
+          msg: "Bad Request: scheduleId and taskType must be provided.",
+        });
         return false;
       }
     }
@@ -108,6 +106,7 @@ export class TaskHandler extends BaseApiPrismaHandler {
       }
       res.status(200).send({ msg: taskResuls });
     } catch (e: any) {
+      console.log((e as Error).message);
       res.status(500).send({ msg: "Fail to retrive tasks." });
     }
   }
@@ -125,11 +124,9 @@ export class TaskHandler extends BaseApiPrismaHandler {
 
     // input validation
     if (!taskId || !tasksRequests) {
-      res
-        .status(400)
-        .send({
-          msg: "Bad request: no task id or task details provided to perform update.",
-        });
+      res.status(400).send({
+        msg: "Bad request: no task id or task details provided to perform update.",
+      });
       return;
     }
 
