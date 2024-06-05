@@ -6,16 +6,24 @@ import { API_ROOT_PATH } from "../constants";
 
 export const router = Router();
 
-const rootPath : string = API_ROOT_PATH;
+const rootPath: string = API_ROOT_PATH;
 const apiHandlerRegister = [
-    new ScheduleHandler(prismaClient),
-    new TaskHandler(prismaClient),
-]
+  new ScheduleHandler(prismaClient),
+  new TaskHandler(prismaClient),
+];
 
-for (const apiHandler of apiHandlerRegister){
-    const fullPath: string = `${rootPath}${apiHandler.path}`;
-    router.post(fullPath, (req, res) => { apiHandler.post(req, res) });
-    router.get(fullPath, (req, res) => { apiHandler.get(req, res) });
-    router.put(`${fullPath}/:key`, (req, res) => { apiHandler.put(req, res) });
-    router.delete(`${fullPath}/:key`, (req, res) => { apiHandler.delete(req, res) });
+for (const apiHandler of apiHandlerRegister) {
+  const fullPath: string = `${rootPath}${apiHandler.path}`;
+  router.post(fullPath, (req, res) => {
+    apiHandler.post(req, res);
+  });
+  router.get(fullPath, (req, res) => {
+    apiHandler.get(req, res);
+  });
+  router.put(`${fullPath}/:key`, (req, res) => {
+    apiHandler.put(req, res);
+  });
+  router.delete(`${fullPath}/:key`, (req, res) => {
+    apiHandler.delete(req, res);
+  });
 }
