@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "npx nodemon -x ts-node -e ts src/app.ts .",
     "start": "tsc --build && node dist/app.js",
-    "test": "test",
+    "test": "ts-node node_modules/jasmine/bin/jasmine",
     "lint": "eslint src **/*.ts"
   },
   "repository": {
@@ -31,7 +31,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.4.0",
-    "eslint": "^9.4.0",
+    "@types/jasmine": "^5.1.4",
+    "eslint": "^8.56.0",
     "globals": "^15.3.0",
     "typescript-eslint": "^7.12.0"
   }

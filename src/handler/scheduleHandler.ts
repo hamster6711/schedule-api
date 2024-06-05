@@ -91,6 +91,7 @@ export class ScheduleHandler extends BaseApiPrismaHandler{
             }
             res.status(200).send({msg: scheduleResuls});
         } catch (e: any){
+            console.log((e as Error).message);
             res.status(500).send({msg: "Fail to retrive schedules."});
         }
     }
